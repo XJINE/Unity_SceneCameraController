@@ -2,7 +2,7 @@
 
 Control a camera or any other object like SceneView camera.
 
-![](https://github.com/XJINE/Unity_SceneCameraController/blob/master/screenshot01.gif)
+<img src="https://github.com/XJINE/Unity_SceneCameraController/blob/master/screenshot01.gif" width="100%" height="auto" />
 
 ## Import to Your Project
 
