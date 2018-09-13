@@ -14,7 +14,7 @@ You can import this asset from UnityPackage.
 
 Just add ``SceneCameraController.cs`` to object.
 
-## Settings
+### Settings
 
 - Set trigger of each control.
 - Set control speed.
