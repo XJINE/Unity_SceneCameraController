@@ -16,7 +16,7 @@ Just add ``SceneCameraController.cs`` to object.
 
 ## Settings
 
-- Set key of each control.
+- Set trigger of each control.
 - Set control speed.
 - Set control direction.
 - Set control limitation.

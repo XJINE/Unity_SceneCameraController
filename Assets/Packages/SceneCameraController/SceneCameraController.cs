@@ -1,7 +1,29 @@
+using UnityEditor;
+#if UNITY_EDITOR
 using UnityEngine;
+#endif
 
 public class SceneCameraController : MonoBehaviour
 {
+    #region Class
+
+    [CustomEditor(typeof(SceneCameraController))]
+    public class SceneCameraControllerEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            if (GUILayout.Button("Reset"))
+            {
+                SceneCameraController sceneCameraController = target as SceneCameraController;
+                sceneCameraController.Reset();
+            }
+
+            base.OnInspectorGUI();
+        }
+    }
+
+    #endregion Class
+
     #region Enum
 
     public enum MouseButton
@@ -32,7 +54,6 @@ public class SceneCameraController : MonoBehaviour
         "Mouse ScrollWheel"
     };
 
-    public bool    resetCameraSettings = false;
     public Vector3 resetCameraPosition = Vector3.zero;
     public Vector3 resetCameraRotation = Vector3.zero;
 
@@ -85,7 +106,6 @@ public class SceneCameraController : MonoBehaviour
         Move();
         Rotate();
         Drag();
-        Reset();
     }
 
     private void Move()
@@ -217,19 +237,12 @@ public class SceneCameraController : MonoBehaviour
         }
     }
 
-    private void Reset()
+    public void Reset()
     {
-        if (!this.resetCameraSettings)
-        {
-            return;
-        }
-
         this.transform.position = this.resetCameraPosition;
         this.transform.rotation = Quaternion.Euler(this.resetCameraRotation);
         this.moveTarget         = this.transform.position;
         this.rotateTarget       = this.transform.forward;
-
-        this.resetCameraSettings = false;
     }
 
     #endregion Method
